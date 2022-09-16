@@ -3,7 +3,8 @@ const tile= document.getElementsByClassName('tile')
 const yellow= document.getElementsByClassName('yellow')
 const red= document.getElementsByClassName('red')
 const result=document.getElementById('result')
-
+const palyer1Score=document.getElementById('player1-score')
+const palyer2Score=document.getElementById('player2-score')
 //counts number of total moves(can't exceed 9)
 let moves=0
 //final game result
@@ -16,7 +17,8 @@ const winCases=[
 let boardStatus=['','','','','','','','','']
 //start with player 1
 let currentPlayer =1
-
+let score1=0
+let score2=0
 startButton.addEventListener('click',startGame)
 
 //starting the game
@@ -39,6 +41,16 @@ function startGame(){
             //check if the player won 
             if (checkWinning(boardStatus, winCases, currentPlayer)){
                 result.textContent=`Player ${currentPlayer} won!`
+                //display scores
+                if (currentPlayer==1){
+                    score1+=1
+                    palyer1Score.textContent=`player1: ${score1}`
+                }
+                else{
+                    score2+=1
+                    palyer2Score.textContent=`player2: ${score2}`
+                }
+
                 boardStatus=[1,1,1,1,1,1,1,1,1] //to stop the game
             }
             //check if players reached a tie
@@ -48,7 +60,6 @@ function startGame(){
             //else switch players
             else{
                 currentPlayer= switchPlayers(currentPlayer)
-                console.log(currentPlayer)
             }
         }
     }
