@@ -18,9 +18,10 @@ let boardStatus=['','','','','','','','','']
 let currentPlayer =1
 
 startButton.addEventListener('click',startGame)
-startButton.onclick=startGame()
+
 //starting the game
 function startGame(){
+    resetGame()
     //loop over all divs and add a click event listener
     for (let i=0;i<9;i++){
         tile[i].onclick=()=>
@@ -38,6 +39,7 @@ function startGame(){
             //check if the player won 
             if (checkWinning(boardStatus, winCases, currentPlayer)){
                 result.textContent=`Player ${currentPlayer} won!`
+                boardStatus=[1,1,1,1,1,1,1,1,1] //to stop the game
             }
             //check if players reached a tie
             else if(moves==9){
@@ -66,6 +68,22 @@ function checkWinning(boardStatus, winCases,currentPlayer){
         }
     }
     return false
+}
+//a function to reset the game
+function resetGame(){
+    boardStatus=['','','','','','','','','']
+    currentPlayer= 1
+    moves=0
+    //hide all appearing coins
+    for (let i=0;i<9;i++){
+        if(tile[i].firstElementChild.classList.contains('display')){
+            tile[i].firstElementChild.classList.remove('display')
+        }
+        if(tile[i].lastElementChild.classList.contains('display')){
+            tile[i].lastElementChild.classList.remove('display')
+        }
+    }
+    result.textContent=''
 }
 
 
