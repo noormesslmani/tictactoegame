@@ -1,0 +1,50 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.board{
+    display: flex;
+    flex-direction: column;
+}
+.row{
+    display:flex;
+}
+.tile{
+    width:100px;
+    height:100px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+.yellow, .red{
+    width:70px;
+    height:70px; 
+    align-self: center;   
+    display:none;
+}
+#title{
+    margin:20px;
+    color: rgb(54, 88, 255);
+}
+#start-btn{
+    margin: 20px;
+    color:white;
+    background-color:  rgb(54, 88, 255);
+    width:120px;
+    height: 30px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+.display{
+    display:block;
+}
+
