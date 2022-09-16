@@ -39,12 +39,17 @@ body{
     color:white;
     background-color:  rgb(54, 88, 255);
     width:120px;
-    height: 30px;
+    height: 40px;
     padding: 5px;
     border: none;
     cursor: pointer;
+    border-radius: 20px;
 }
 .display{
     display:block;
+}
+#player1-score, #player2-score{
+    color: blue;
+    font-size: 18px;
 }
 

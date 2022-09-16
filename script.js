@@ -3,6 +3,7 @@ const tile= document.getElementsByClassName('tile')
 const yellow= document.getElementsByClassName('yellow')
 const red= document.getElementsByClassName('red')
 const result=document.getElementById('result')
+const title=document.getElementById('title')
 const palyer1Score=document.getElementById('player1-score')
 const palyer2Score=document.getElementById('player2-score')
 //counts number of total moves(can't exceed 9)
@@ -23,6 +24,7 @@ startButton.addEventListener('click',startGame)
 
 //starting the game
 function startGame(){
+    title.textContent='Game started'
     resetGame()
     //loop over all divs and add a click event listener
     for (let i=0;i<9;i++){
@@ -52,10 +54,12 @@ function startGame(){
                 }
 
                 boardStatus=[1,1,1,1,1,1,1,1,1] //to stop the game
+                title.textContent='Click bellow to start the game!'
             }
             //check if players reached a tie
             else if(moves==9){
                 result.textContent="It's a tie"
+                title.textContent='Click bellow to start the game!'
             }
             //else switch players
             else{
